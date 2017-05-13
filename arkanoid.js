@@ -106,6 +106,10 @@ function init() {
 	window.requestAnimationFrame(drawCanvas);
 
 
+    setInterval(function(){
+		newLineBlocks();
+	},10000);
+    
 	setInterval(function(){
 		if(barBuffTime>0){
 			barBuffTime--;
