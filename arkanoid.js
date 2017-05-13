@@ -127,6 +127,12 @@ function init() {
             speedUpBuffTime--;
         }
     },1000);
+    
+    setInterval(function(){
+        if(speedDownDebuff>0){
+            speedDownDebuff--;
+        }
+    },1000);
 }
 
 function drawCanvas() {
@@ -235,9 +241,9 @@ function Ball(constructor_pelota) {
 			this.posY += this.dy;
 
 		if ((this.posY+this.ballWidth) > bar.posY && (this.posY+this.ballWidth)<bar.posY+bar.barHeight){
-			if ((this.posX+this.ballWidth) > bar.posX && (this.posX-this.ballWidth) < (bar.posX+bar.barWidth)){
+			if ((this.posX+this.ballWidth) > bar.posX && (this.posX-this.ballWidth) < (bar.posX+totalWidth)){
 				otherSounds[6].play();
-				this.dx = 8 * ((this.posX-(bar.posX+bar.barWidth/2))/bar.barWidth);		
+				this.dx = 8 * ((this.posX-(bar.posX+totalWidth/2))/totalWidth);		
 				this.posY = this.posY-5;
 				this.dy = -this.dy;
 			}
@@ -348,8 +354,13 @@ function Bar(){
 	this.posY = gameHeight - (this.barHeight)-5;
 
 	this.drawBar = function(new_width){
-		console.log("Current width: "+bar.barWidth);
-        canvas.drawImage(barImage, this.posX, this.posY,new_width, bar.barHeight);    
+        if(new_width != bar.barWidth){
+            canvas.drawImage(barImage, this.posX, this.posY,new_width, bar.barHeight);    
+        }
+        else{
+            canvas.drawImage(barImage, this.posX, this.posY,bar.barWidth, bar.barHeight);    
+        }
+        
 	}
 }
 
@@ -403,7 +414,7 @@ function Reward(constructor_Reward){
 
 	this.collision = function(){
 		if((this.posY + this.rewardHeight) > bar.posY && (this.posY + this.rewardHeight) < (bar.posY + bar.barHeight)){
-			if((this.posX + this.rewardWidth) > bar.posX && this.posX < (bar.posX + bar.barWidth)){
+			if((this.posX + this.rewardWidth) > bar.posX && this.posX < (bar.posX + totalWidth)){
 				if (this.kind == 1){
 					otherSounds[8].play();
 					extraBalls++;
@@ -436,7 +447,7 @@ function Reward(constructor_Reward){
 				}else if (this.kind == 6){
 					if (speedDownDebuff <= rewardTime){
 						otherSounds[8].play();
-						speedDownDebuff = rewardTime;
+						speedDownDebuff = 1;
 					}
 					this.visible = false;
 				}
@@ -471,8 +482,8 @@ function clear() {
 
 function rewardMovementBarra(evt){
 	if (evt.pageX > minX && evt.pageX < maxX) {
-		bar.posX = Math.max(evt.pageX - minX - (bar.barWidth/2), 0);
-		bar.posX = Math.min(gameWidth - bar.barWidth, bar.posX);
+		bar.posX = Math.max(evt.pageX - minX - (totalWidth/2), 0);
+		bar.posX = Math.min(gameWidth - totalWidth, bar.posX);
 	}
 }
 $(document).mousemove(rewardMovementBarra);
@@ -586,10 +597,16 @@ function newLineBlocks(){
 function barBuff(){
 	if (barBuffTime>0){
         bar.barWidth=(gameWidth/100*20)*2;
+        return bar.barWidth;
 	}else{
-		bar.barWidth = gameWidth/100*20;
+		if(barDebuffTime>0){
+        bar.barWidth = (gameWidth/100*20)/2;
+        return bar.barWidth;
+        }else{
+            bar.barWidth = gameWidth/100*20;
+            return bar.barWidth;
+        }
 	}
-    return bar.barWidth;
 }
 
 function speedUpBuff(){
@@ -609,7 +626,7 @@ function speedDown(){
             balls[i].dy =-2;
         } 
     }
-    speedDownDebuff=0;
+    speedDownDebuff = 0;
 }
 
 function extraBall(){
