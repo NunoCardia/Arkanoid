@@ -83,8 +83,7 @@ function loadRewards(){
 
 
 function init() {
-    console.log("width"+gameWidth + "height"+gameHeight);
-	barImage.src="./Imagenes/barra.png";
+	barImage.src="./Imagenes/Paddle_B.png";
 	gameoverImage.src = "./Imagenes/GameOver.png";
     ballImage.src = "./Imagenes/Ball_W.png";
     extraBallImagem.src = "./Imagenes/Bola_Extra_Clara.png";
@@ -354,6 +353,7 @@ function Bar(){
 	this.posY = gameHeight - (this.barHeight)-5;
 
 	this.drawBar = function(new_width){
+        console.log("posX: "+this.posX+" posY: "+this.barWidth);
         if(new_width != bar.barWidth){
             canvas.drawImage(barImage, this.posX, this.posY,new_width, bar.barHeight);    
         }
