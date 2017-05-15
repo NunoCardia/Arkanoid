@@ -22,7 +22,7 @@ var blockHeight = (gameHeight/100)*3;
 
 var bar;
 var bar2;
-
+var k=0;
 var balls = new Array();
 var ballSpeed = 7;
 
@@ -366,7 +366,7 @@ function Bar(){
 	this.posY = gameHeight - (this.barHeight)-5;
 
 	this.drawBar = function(new_width){
-        console.log("posX: "+this.posX+" posY: "+this.barWidth);
+        
         if(new_width != bar.barWidth){
             canvas.drawImage(barImage, this.posX, this.posY,new_width, bar.barHeight);    
         }

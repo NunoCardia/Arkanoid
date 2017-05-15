@@ -49,7 +49,6 @@ var extraBallImagem = new Image();
 var maxRewards = 10;
 
 
-var mainSound = new Audio("../aux_files/Sounds/wind.mp3");
 var otherSounds = [new Audio("../aux_files/Sounds/lose.wav"), new Audio("../aux_files/Sounds/choque.wav"), new Audio("../aux_files/Sounds/rompe1.wav"), new Audio("../aux_files/Sounds/rompe2.wav"), new Audio("../aux_files/Sounds/rompe3.wav"),
 				new Audio("../aux_files/Sounds/rompe4.wav"), new Audio("../aux_files/Sounds/barra.wav"), new Audio("../aux_files/Sounds/laser.wav"), new Audio("../aux_files/Sounds/premio.wav"), new Audio("../aux_files/Sounds/gameover.wav") ];
 
@@ -99,14 +98,13 @@ function init() {
 	bar = new Bar();
 	newBall();
 
-	mainSound.play();
 
 	window.requestAnimationFrame(drawCanvas);
 
 
     setInterval(function(){
 		newLineBlocks();
-	},1000);
+	},10000);
     
 	setInterval(function(){
 		if(barBuffTime>0){
@@ -318,7 +316,6 @@ function Ball(constructor_pelota) {
 
 		if (lifes == 0 || blocks.length == 28){
 			otherSounds[9].play();
-			mainSound.pause();
 			gameover = true;
 			clear();
 			canvas.drawImage(gameoverImage, (gameWidth/2)-(gameoverWidth/2)+80, (gameHeight/2)-(gameoverHeight/2)*5, gameoverWidth-200, gameoverHeight);
@@ -544,7 +541,6 @@ function printStats(){
 }
 
 function resetCanvas(){
-	mainSound.pause();
 	if (balls.length>1){
 		for(i=0; i<balls.length-1;i++){
 			balls.splice(i,1);
@@ -561,7 +557,6 @@ function resetCanvas(){
 
 	delete rewards;
 	rewards = new Array;
-	mainSound.play();
 }
 
 
