@@ -50,43 +50,43 @@ var extraBallImagem = new Image();
 var maxRewards = 10;
 
 
-var mainSound = new Audio("./Sonidos/wind.mp3");
-var otherSounds = [new Audio("./Sonidos/lose.wav"), new Audio("./Sonidos/choque.wav"), new Audio("./Sonidos/rompe1.wav"), new Audio("./Sonidos/rompe2.wav"), new Audio("./Sonidos/rompe3.wav"),
-				new Audio("./Sonidos/rompe4.wav"), new Audio("./Sonidos/barra.wav"), new Audio("./Sonidos/laser.wav"), new Audio("./Sonidos/premio.wav"), new Audio("./Sonidos/gameover.wav") ];
+var mainSound = new Audio("../aux_files/Sounds/wind.mp3");
+var otherSounds = [new Audio("../aux_files/Sounds/lose.wav"), new Audio("../aux_files/Sounds/choque.wav"), new Audio("../aux_files/Sounds/rompe1.wav"), new Audio("../aux_files/Sounds/rompe2.wav"), new Audio("../aux_files/Sounds/rompe3.wav"),
+				new Audio("../aux_files/Sounds/rompe4.wav"), new Audio("../aux_files/Sounds/barra.wav"), new Audio("../aux_files/Sounds/laser.wav"), new Audio("../aux_files/Sounds/premio.wav"), new Audio("../aux_files/Sounds/gameover.wav") ];
 
 function loadBlocks(){
     blocksImage[0] = new Image();
-    blocksImage[0].src = "./Imagenes/Block_1.png";
+    blocksImage[0].src = "./../aux_files/Pictures/Block_1.png";
     blocksImage[1] = new Image();
-    blocksImage[1].src = "./Imagenes/Block_2.png";
+    blocksImage[1].src = "./../aux_files/Pictures/Block_2.png";
     blocksImage[2] = new Image();
-    blocksImage[2].src = "./Imagenes/Block_3.png";
+    blocksImage[2].src = "./../aux_files/Pictures/Block_3.png";
     blocksImage[3] = new Image();
-    blocksImage[3].src = "./Imagenes/Block_4.png";
+    blocksImage[3].src = "./../aux_files/Pictures/Block_4.png";
     
 }
 
 function loadRewards(){
     buffsImage[0] = new Image();
-    buffsImage[0].src = "./Imagenes/power_up_Bola_Extra.png";
+    buffsImage[0].src = "./../aux_files/Pictures/power_up_Bola_Extra.png";
     buffsImage[1] = new Image();
-    buffsImage[1].src = "./Imagenes/power_up_Aumento.png";
+    buffsImage[1].src = "./../aux_files/Pictures/power_up_Aumento.png";
     buffsImage[2] = new Image();
-    buffsImage[2].src = "./Imagenes/power_up_Fast.png";
+    buffsImage[2].src = "./../aux_files/Pictures/power_up_Fast.png";
     buffsImage[3] = new Image();
-    buffsImage[3].src = "./Imagenes/power_up_Life.png";
+    buffsImage[3].src = "./../aux_files/Pictures/power_up_Life.png";
     buffsImage[4] = new Image();
-    buffsImage[4].src = "./Imagenes/power_up_Reduzir.png";
+    buffsImage[4].src = "./../aux_files/Pictures/power_up_Reduzir.png";
     buffsImage[5] = new Image();
-    buffsImage[5].src = "./Imagenes/power_up_Slow.png";
+    buffsImage[5].src = "./../aux_files/Pictures/power_up_Slow.png";
 }
 
 
 function init() {
-	barImage.src="./Imagenes/Paddle_B.png";
-	gameoverImage.src = "./Imagenes/GameOver.png";
-    ballImage.src = "./Imagenes/Ball_W.png";
-    extraBallImagem.src = "./Imagenes/Bola_Extra_Clara.png";
+	barImage.src="./../aux_files/Pictures/Paddle_B.png";
+	gameoverImage.src = "./../aux_files/Pictures/GameOver.png";
+    ballImage.src = "./../aux_files/Pictures/Ball_W.png";
+    extraBallImagem.src = "./../aux_files/Pictures/Bola_Extra_Clara.png";
     loadBlocks();
     loadRewards();
 	canvas = document.getElementById("lienzo").getContext("2d");

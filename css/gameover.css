@@ -1,0 +1,93 @@
+@font-face {
+	font-family: AmpleSoft;
+	src: url('../aux_files/Fonts/AmpleSoft-Light.otf') format("opentype");
+}
+
+#soundLogo{
+    width: 38px;
+    height: 35px;
+    left: 822px;
+    top: 93px;
+    right: 860px;
+    bottom: 128px;
+    position: absolute;
+}
+
+#definition{
+    width: 38px;
+    height: 34px;
+    left: 866px;
+    top: 93px;
+    right: 904px;
+    bottom: 128px;
+    position: absolute;
+}
+
+#exit{
+    width: 39px;
+    height: 34px;
+    left: 911px;
+    top: 93px;
+    right: 950px;
+    bottom: 127px;
+    position: absolute;
+}
+h1{
+    width: 447px;
+    height: 112px;
+    left: 337px;
+    top: 210px;
+    right: 784px;
+    bottom: 362px;
+    position: absolute;
+    text-align: center;
+    font-family: AmpleSoft;
+    font-size: 420%;
+    letter-spacing: 10px;
+    color: rgb(0,109,187);
+}
+
+p{
+    width: 213px;
+    height: 43px;
+    left: 423px;
+    top: 369px;
+    right: 676px;
+    bottom: 422px;
+    position: absolute;
+    text-align: center;
+    font-family: AmpleSoft;
+    font-size: 150%;
+    color: rgb(0,109,187);
+}
+
+#retry{
+    width: 77px;
+    height: 77px;
+    left: 538px;
+    top: 478px;
+    right: 615px;
+    bottom: 535px;
+    position: absolute;
+}
+
+#back{
+    width: 74px;
+    height: 61px;
+    left: 869px;
+    top: 716px;
+    right: 943px;
+    bottom: 777px;
+    position: absolute;
+}
+button
+{
+	border: none;
+	cursor: pointer;
+	background-color: transparent;
+	outline: 0;
+}
+
+button:hover{
+	opacity: 0.6;
+}

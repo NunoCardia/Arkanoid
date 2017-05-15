@@ -1,12 +1,12 @@
 
 @font-face {
 	font-family: AmpleSoftRegular;
-	src: url('./Fonts/AmpleSoft-Regular2.otf') format("opentype");
+	src: url('../aux_files/Fonts/AmpleSoft-Regular2.otf') format("opentype");
 }
 
 @font-face{
     font-family: AmpleSoftBold;
-    src: url('./Fonts/AmpleAlt-Bold.otf') format("opentype");
+    src: url('../aux_files/Fonts/AmpleAlt-Bold.otf') format("opentype");
 }
 
 p{
@@ -193,7 +193,7 @@ p{
     width: 147px;
     height: 19px;
     left: 361px;
-    top: 523px;
+    top: 516px;
     right: 506px;
     bottom: 542px;
     position: absolute;
@@ -221,8 +221,8 @@ p{
 #speedUp figcaption{
     width: 132px;
     height: 34px;
-    left: 550px;
-    top: 511px;
+    left: 560px;
+    top: 516px;
     right: 707px;
     bottom: 545px;
     position: absolute;
@@ -252,7 +252,7 @@ p{
     width: 132px;
     height: 34px;
     left: 820px;
-    top: 512px;
+    top: 516px;
     right: 952px;
     bottom: 546px;
     position: absolute;
