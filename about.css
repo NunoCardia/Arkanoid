@@ -1,0 +1,303 @@
+
+@font-face {
+	font-family: AmpleSoftRegular;
+	src: url('./Fonts/AmpleSoft-Regular2.otf') format("opentype");
+}
+
+@font-face{
+    font-family: AmpleSoftBold;
+    src: url('./Fonts/AmpleAlt-Bold.otf') format("opentype");
+}
+
+p{
+    margin: 0 auto;
+    text-align: justify;
+    top: 500px;
+    font-family: AmpleSoftRegular;
+    width: 597px;
+    height: 125px;
+    left: 352px;
+    right: 949px;
+    bottom: 412px;
+    top: 193px;
+    position: absolute;
+    
+}
+
+#soundLogo{
+    width: 38px;
+    height: 35px;
+    left: 822px;
+    top: 93px;
+    right: 860px;
+    bottom: 128px;
+    position: absolute;
+}
+
+#definition{
+    width: 38px;
+    height: 34px;
+    left: 866px;
+    top: 93px;
+    right: 904px;
+    bottom: 128px;
+    position: absolute;
+}
+
+#exit{
+    width: 39px;
+    height: 34px;
+    left: 911px;
+    top: 93px;
+    right: 950px;
+    bottom: 127px;
+    position: absolute;
+}
+
+#logo{
+    width: 432px;
+    height: 78px;
+    left: 288px;
+    top: 71px;
+    right: 720px;
+    bottom: 149px;
+    position: absolute;
+}
+
+#about{
+    width: 50px;
+    height: 45px;
+    left: 290px;
+    top: 194px;
+    right: 345px;
+    bottom: 254px;
+    position: absolute;
+}
+
+/*width: 53px;
+    height: 47px;
+    left: 289px;
+    top: 388px;
+    right: 342px;
+    bottom: 435px;
+    position: absolute;
+*/
+#extraBall{
+    
+    border: 1px gray;
+    margin: 20px;
+    
+}
+
+#extraBall img{
+    vertical-align: top;
+    width: 53px;
+    height: 47px;
+    left: 289px;
+    top: 387px;
+    right: 342px;
+    bottom: 435px;
+    position: absolute;
+    
+}
+
+#extraBall figcaption{
+    width: 70px;
+    height: 19px;
+    left: 360px;
+    top: 401px;
+    right: 430px;
+    bottom: 422px;
+    position: absolute;
+    text-align: center;
+    font-family: AmpleSoftBold;
+}
+
+#bigPaddle{
+    border: 1px gray;
+    margin: 20px;
+    
+}
+
+#bigPaddle img{
+    vertical-align: top;
+    width: 53px;
+    height: 47px;
+    left: 480px;
+    top: 386px;
+    right: 565px;
+    bottom: 436px;
+    position: absolute;
+    
+}
+
+#bigPaddle figcaption{
+    width: 216px;
+    height: 19px;
+    left: 555px;
+    top: 401px;
+    right: 798px;
+    bottom: 419px;
+    position: absolute;
+    font-family: AmpleSoftBold;
+}
+
+#smallPaddle{
+    border: 1px gray;
+    margin: 20px;
+    
+}
+
+#smallPaddle img{
+    vertical-align: top;
+    width: 53px;
+    height: 47px;
+    left: 726px;
+    top: 386px;
+    right: 782px;
+    bottom: 433px;
+    position: absolute;
+    
+}
+
+#smallPaddle figcaption{
+    width: 147px;
+    height: 19px;
+    left: 802px;
+    top: 401px;
+    right: 949px;
+    bottom: 419px;
+    position: absolute;
+    font-family: AmpleSoftBold;
+}
+
+#extraLife{
+    border: 1px gray;
+    margin: 20px;
+    
+}
+
+#extraLife img{
+    vertical-align: top;
+    width: 53px;
+    height: 48px;
+    left: 289px;
+    top: 506px;
+    right: 344px;
+    bottom: 554px;
+    position: absolute;
+    
+}
+
+#extraLife figcaption{
+    width: 147px;
+    height: 19px;
+    left: 361px;
+    top: 523px;
+    right: 506px;
+    bottom: 542px;
+    position: absolute;
+    font-family: AmpleSoftBold;
+}
+
+#speedUp{
+    border: 1px gray;
+    margin: 20px;
+    
+}
+
+#speedUp img{
+    vertical-align: top;
+    width: 99px;
+    height: 38px;
+    left: 460px;
+    top: 510px;
+    right: 568px;
+    bottom: 555px;
+    position: absolute;
+    
+}
+
+#speedUp figcaption{
+    width: 132px;
+    height: 34px;
+    left: 550px;
+    top: 511px;
+    right: 707px;
+    bottom: 545px;
+    position: absolute;
+    font-family: AmpleSoftBold;
+    text-align: center;
+}
+
+#speedDown{
+    border: 1px gray;
+    margin: 20px;
+    
+}
+
+#speedDown img{
+    vertical-align: top;
+    width: 99px;
+    height: 38px;
+    left: 710px;
+    top: 510px;
+    right: 817px;
+    bottom: 547px;
+    position: absolute;
+    
+}
+
+#speedDown figcaption{
+    width: 132px;
+    height: 34px;
+    left: 820px;
+    top: 512px;
+    right: 952px;
+    bottom: 546px;
+    position: absolute;
+    font-family: AmpleSoftBold;
+    text-align: center;
+}
+
+#back{
+    width: 74px;
+    height: 61px;
+    left: 869px;
+    top: 716px;
+    right: 943px;
+    bottom: 777px;
+    position: absolute;
+}
+
+#paddle{
+    width: 143px;
+    height: 27px;
+    left: 545px;
+    top: 749px;
+    right: 708px;
+    bottom: 776px;
+    position: absolute;
+}
+
+#ball{
+    width: 30px;
+    height: 26px;
+    left: 600px;
+    top: 719px;
+    right: 650px;
+    bottom: 745px;
+    position: absolute;
+}
+
+button
+{
+	border: none;
+	cursor: pointer;
+	background-color: transparent;
+	outline: 0;
+}
+
+button:hover{
+	opacity: 0.6;
+}

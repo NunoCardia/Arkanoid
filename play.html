@@ -4,11 +4,10 @@
 	<head>
 		<title>Arkanoid</title>
 		<meta charset = "utf-8">
-		<script type="text/javascript" src="arkanoid.js"></script>
-        <link rel="stylesheet" type="text/css" href="start.css">
+		<link rel="stylesheet" type="text/css" href="play.css">
 	</head>
-    <body>
-        <div id="upper">
+	<body>
+		<div id="upper">
             <img id="logo" src="Imagenes/logo_copy.png">
             <div id="options">
                 <button><img id="soundLogo" src="Imagenes/Som_B.png"></button>
@@ -16,12 +15,17 @@
                 <button><img id="exit" src="Imagenes/EXIT_B.png"></button>
             </div>
         </div>
-        <nav id="menu">
-            <button><img id="play" src="Imagenes/Play_B.png"></button>
-            <button><img id="scores" src="Imagenes/Trofeu_B.png"></button>
-            <button><img id="about" src="Imagenes/Ajuda_B.png"></button>
-        </nav>
+		<form>
+            <input id="user" type="text" placeholder="USERNAME">
+        </form>
+        <select id="mode" name="Mode">
+			<option value="Classic Mode">Classic Mode</option>
+			<option value="Survival Mode">Survival Mode</option>
+            <option value="Multiplayer Mode">Multiplayer Mode</option>
+		</select>
+		<button><img id="play" src="Imagenes/Play_B.png"></button>
         <img id="paddle" src="Imagenes/Paddle_B.png">
         <img id="ball" src="Imagenes/Ball_B.png">
-    </body>
+		<button><img src="./Imagenes/Back.png" id="back"></button>
+	</body>
 </html>

@@ -1,0 +1,175 @@
+@font-face {
+	font-family: AmpleSoft;
+	src: url('./Fonts/AmpleAlt-Bold.otf') format("opentype");
+}
+
+html, body	{
+			margin: 0px;
+	overflow:hidden;
+	width: 100%;
+	height: 100%;
+		}
+
+body
+{
+	background-size: 50% 100%;
+	background-repeat: no-repeat;
+	background-position: 50%;	
+}
+
+img
+{
+	border: none;
+	width: 20%;
+	height: 10%;
+	position: absolute;	
+	top: 9%;
+	left: 20%;
+}
+
+button
+{
+	border: none;
+	cursor: pointer;
+	background-color: transparent;
+	outline: 0;
+}
+
+button:hover{
+	opacity: 0.6;
+}
+
+#logo{
+    width: 30%;
+    left: 20%;
+}
+
+div #options
+{
+	border: none;
+	width: 9%;
+	height: 9%;
+	position: absolute;	
+	top: 11%;
+	left: 57%;
+}
+
+#soundLogo
+{
+	width: 30%;
+	height: 50%;
+	left: 1%;
+}
+
+#definition
+{
+	width: 30%;
+	height: 50%;
+	left: 35%;
+}
+
+#exit
+{
+	width: 30%;
+	height: 50%;
+	left: 70%;
+}
+
+#back{
+    width: 5%;
+    height: 7%;
+    left: 870px;
+    top: 717px;
+}
+
+select, input{
+    width:100px;
+    box-sizing:border-box;
+}
+
+#mode {
+	position: absolute;
+	top:35%;
+	left: 35%;
+	width: 15%;
+	padding: 20px 20px;
+    border: 1px solid;
+    border-width: 2px;
+	background-color: white;
+    border-color: rgb(0,109,187);
+	color: rgb(0,109,187);
+	font-size: 100%;
+    font-family: AmpleSoft;
+    text-align-last: center;
+}
+
+#user{
+    position: absolute;
+	top:45%;
+	left: 35%;
+	width: 15%;
+    border: 1px solid;
+    border-width: 2px;
+	background-color: white;
+    border-color: rgb(0,109,187);
+	color: rgb(0,109,187);
+	font-size: 100%;
+    font-family: AmpleSoft;
+    text-align-last: center;
+}
+
+#paddle{
+    height: 25.8px;
+    width: 144px;
+    left: 550px;
+    top: 750px;
+}
+
+#ball{
+    height: 3%;
+    width: 2%;
+    left: 605px;
+    top: 720px;
+}
+
+#play{
+    border: none;
+	width: 6%;
+	height: 8%;
+	position: absolute;	
+	top: 55%;
+	left: 40%;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    rgb(0,109,187);
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    rgb(0,109,187);
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    rgb(0,109,187);
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    rgb(0,109,187);
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    rgb(0,109,187);
+}
+
+figure {
+    display: inline-block;
+    padding: 5px;
+    width: 100px;
+    height: 100px;
+    top: 500px;
+}
+figcaption {
+    margin: 10px 0 0 0;
+    font-variant: small-caps;
+    font-family: Arial;
+    font-weight: bold;
+    color: #bb3333;
+}

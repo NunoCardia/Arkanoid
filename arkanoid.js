@@ -321,7 +321,7 @@ function Ball(constructor_pelota) {
 			mainSound.pause();
 			gameover = true;
 			clear();
-			canvas.drawImage(gameoverImage, (gameWidth/2)-(gameoverWidth/2), (gameHeight/2)-(gameoverHeight/2)*5, gameoverWidth, gameoverHeight);
+			canvas.drawImage(gameoverImage, (gameWidth/2)-(gameoverWidth/2)+80, (gameHeight/2)-(gameoverHeight/2)*5, gameoverWidth-200, gameoverHeight);
 			canvas.font = "bold 30px sans-serif";
 			canvas.fillStyle = 'rgb(54, 168, 225)';
 			canvas.fillText ("Total points: " +points, (gameWidth/2)-(gameoverWidth/5), (gameHeight/2)-(gameoverHeight/2));
