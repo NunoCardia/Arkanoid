@@ -21,6 +21,7 @@ var blockWidth = gameWidth / nBlocks;
 var blockHeight = (gameHeight/100)*3;
 
 var bar;
+var bar2;
 
 var balls = new Array();
 var ballSpeed = 7;
@@ -30,9 +31,10 @@ var points = 0;
 var gameover = false;
 var gameoverWidth = gameWidth/100*80;
 var gameoverHeight = gameHeight/100*10;
+
 var rewards = new Array();
 
-var rewardTime = 15;
+var rewardTime = 7;
 var extraBalls = 1;
 var barBuffTime = 0;
 var speedUpBuffTime = 0;
@@ -94,9 +96,9 @@ function init() {
 
 	minX = $("#lienzo").offset().left;
 	maxX = minX + gameWidth;
-
+    bar=new Bar();
+    bar2 = new Bar();
 	createBlocks();
-	bar = new Bar();
 	newBall();
 
 	mainSound.play();
@@ -106,7 +108,7 @@ function init() {
 
     setInterval(function(){
 		newLineBlocks();
-	},1000);
+	},5000);
     
 	setInterval(function(){
 		if(barBuffTime>0){
@@ -143,9 +145,10 @@ function drawCanvas() {
 				}
 
 			}
-            
             totalWidth = barBuff();
-			bar.drawBar(totalWidth);
+            
+            bar.drawBar(totalWidth);
+            bar2.drawBar(totalWidth);
 
 			for (p=0;p<balls.length;p++){
 				balls[p].drawBall();
@@ -236,18 +239,28 @@ function Ball(constructor_pelota) {
 			this.dy = -this.dy;
 			otherSounds[1].play();
 		}
-			this.posX += this.dx;
-			this.posY += this.dy;
+        
+        this.posX += this.dx;
+        this.posY += this.dy;
 
-		if ((this.posY+this.ballWidth) > bar.posY && (this.posY+this.ballWidth)<bar.posY+bar.barHeight){
-			if ((this.posX+this.ballWidth) > bar.posX && (this.posX-this.ballWidth) < (bar.posX+totalWidth)){
-				otherSounds[6].play();
-				this.dx = 8 * ((this.posX-(bar.posX+totalWidth/2))/totalWidth);		
-				this.posY = this.posY-5;
-				this.dy = -this.dy;
-			}
-		}
+        if ((this.posY+this.ballWidth) > bar.posY && (this.posY+this.ballWidth)<bar.posY+bar.barHeight){
+            if ((this.posX+this.ballWidth) > bar.posX && (this.posX-this.ballWidth) < (bar.posX+totalWidth)){
+                otherSounds[6].play();
+                this.dx = 8 * ((this.posX-(bar.posX+totalWidth/2))/totalWidth);		
+                this.posY = this.posY-5;
+                this.dy = -this.dy;
+            }
+        }   
 
+        if ((this.posY+this.ballWidth) > bar2.posY && (this.posY+this.ballWidth)<bar2.posY+bar2.barHeight){
+            if ((this.posX+this.ballWidth) > bar2.posX && (this.posX-this.ballWidth) < (bar2.posX+totalWidth)){
+                otherSounds[6].play();
+                this.dx = 8 * ((this.posX-(bar2.posX+totalWidth/2))/totalWidth);		
+                this.posY = this.posY-5;
+                this.dy = -this.dy;
+            }
+        } 
+        
 		for (j=0;j<blocks.length;j++){
 			for (i=0;i<blocks[j].length;i++){
 				if(blocks[j][i].life > 0){
@@ -346,14 +359,6 @@ function spliceBall(){
 	}
 }
 
-function rewardMovementBarra(evt){
-	if (evt.pageX > minX && evt.pageX < maxX) {
-		bar.posX = Math.max(evt.pageX - minX - (totalWidth/2), 0);
-		bar.posX = Math.min(gameWidth - totalWidth, bar.posX);
-	}
-}
-$(document).mousemove(rewardMovementBarra);
-
 function Bar(){	
 	this.barWidth = gameWidth/100*20;
 	this.barHeight = (gameHeight/100*1.5)+15;
@@ -361,6 +366,7 @@ function Bar(){
 	this.posY = gameHeight - (this.barHeight)-5;
 
 	this.drawBar = function(new_width){
+        console.log("posX: "+this.posX+" posY: "+this.barWidth);
         if(new_width != bar.barWidth){
             canvas.drawImage(barImage, this.posX, this.posY,new_width, bar.barHeight);    
         }
@@ -368,23 +374,6 @@ function Bar(){
             canvas.drawImage(barImage, this.posX, this.posY,bar.barWidth, bar.barHeight);    
         }
         
-	}
-    this.update =  function(tecla){
-		if(this.posX<=0){
-			this.posX = 1;
-			return;
-		}
-		if(this.posX + this.barWidth >=650){
-			this.posX = 650-this.barWidth-1;
-			return;
-		}
-	
-		if(tecla == 37){ //izq
-			this.posX -= 5;
-		}
-		if(tecla == 39){ //dere
-			this.posX += 5; 
-		}	
 	}
 }
 
@@ -475,6 +464,45 @@ function Reward(constructor_Reward){
 				}
 			}
 		}
+        
+        if((this.posY + this.rewardHeight) > bar2.posY && (this.posY + this.rewardHeight) < (bar2.posY + bar2.barHeight)){
+			if((this.posX + this.rewardWidth) > bar2.posX && this.posX < (bar2.posX + totalWidth)){
+				if (this.kind == 1){
+					otherSounds[8].play();
+					extraBalls++;
+					this.visible = false;
+				}else if (this.kind == 2){
+					if (barBuffTime <= rewardTime){
+						otherSounds[8].play();
+						barBuffTime = rewardTime;
+                        barDebuffTime = 0;
+					}
+					this.visible = false;
+				}else if (this.kind == 3){
+					if (speedUpBuffTime <= rewardTime){
+						otherSounds[8].play();
+						speedUpBuffTime = rewardTime;
+					}
+					this.visible = false;
+				}else if (this.kind == 4){
+					lifes++;
+					this.visible = false;
+				}else if (this.kind == 5){
+					if (barDebuffTime <= rewardTime){
+						otherSounds[8].play();
+						barDebuffTime = rewardTime;
+                        barBuffTime = 0;
+					}
+					this.visible = false;
+				}else if (this.kind == 6){
+					if (speedDownDebuff <= rewardTime){
+						otherSounds[8].play();
+						speedDownDebuff = 1;
+					}
+					this.visible = false;
+				}
+			}
+		}
 	}
 
 	this.rewardMovement = function(){
@@ -502,7 +530,26 @@ function clear() {
 	
 }
 
+function rewardMovementBarra(evt){
+	if (evt.pageX > minX && evt.pageX < maxX) {
+		bar.posX = Math.max(evt.pageX - minX - (totalWidth/2), 0);
+		bar.posX = Math.min(gameWidth - totalWidth, bar.posX);
+	}
+}
+$(document).mousemove(rewardMovementBarra);
 
+$(document).keydown(function(e) {
+    switch(e.which) {
+        case 37:
+            bar2.posX-=20;
+        break;
+        case 39:
+            bar2.posX+=20;
+            break;
+        default: return;
+    }
+    e.preventDefault();
+});
 
 function printStats(){
     var space = 0;
@@ -550,7 +597,7 @@ function resetCanvas(){
 			balls.splice(i,1);
 		}
 	}
-    balls[0].posX = bar.posX+(bar.barWidth/2);
+    balls[0].posX = gameWidth/2;
 	balls[0].posY = gameHeight-(bar.barHeight*1.8);
 	balls[0].dx = 0;
 	balls[0].dy = 0;
@@ -660,4 +707,3 @@ function barDebuff(){
         bar.barWidth = gameWidth/100*20;
     }
 }
-
