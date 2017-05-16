@@ -50,7 +50,7 @@ var maxRewards = 10;
 
 
 var otherSounds = [new Audio("../aux_files/Sounds/lose.wav"), new Audio("../aux_files/Sounds/choque.wav"), new Audio("../aux_files/Sounds/rompe1.wav"), new Audio("../aux_files/Sounds/rompe2.wav"), new Audio("../aux_files/Sounds/rompe3.wav"),
-				new Audio("../aux_files/Sounds/rompe4.wav"), new Audio("../aux_files/Sounds/barra.wav"), new Audio("../aux_files/Sounds/laser.wav"), new Audio("../aux_files/Sounds/premio.wav"), new Audio("../aux_files/Sounds/gameover.wav") ];
+				new Audio("../aux_files/Sounds/rompe4.wav"), new Audio("../aux_files/Sounds/barra.wav"), new Audio("../aux_files/Sounds/laser.wav"), new Audio("../aux_files/Sounds/premio.wav"), new Audio("../aux_files/Sounds/GAME-OVER.aif") ];
 
 function loadBlocks(){
     blocksImage[0] = new Image();
