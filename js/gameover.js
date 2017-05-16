@@ -7,7 +7,7 @@
 
 function main()
 {
-	var btn = document.getElementsByTagName("nav")[0];
+	var btn = document.getElementById("back");
 	btn.addEventListener("click", btnHandler);
     var btn2 = document.getElementById("soundLogo");
     btn2.addEventListener("click",handleSound);
@@ -18,22 +18,12 @@ function main()
 function btnHandler(ev)
 {
 	var btnClicado = ev.target.id;
-	
+	console.log("ON BUTTON HANDLER");
 	ev.target.removeEventListener("click", btnHandler);
 
 	var mainWindow = window.parent;
 	
-	switch(btnClicado){
-		case "play":
-			mainWindow.postMessage("Play",'*');
-			break;
-		case "scores":
-			mainWindow.postMessage("Ranking", '*');
-			break;
-		case "about":
-			mainWindow.postMessage("About - Main Menu", '*');
-			break;
-	}
+	mainWindow.postMessage("Gameover to main menu",'*');
 }
 
 function handleSound(ev){

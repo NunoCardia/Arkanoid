@@ -107,3 +107,15 @@ nav img
     left: 620px;
     top: 720px;
 }
+
+#vol-control{
+    height: 27px;
+    width: 127px;
+    left: 845px;
+    top: 140px;
+    right: 979px;
+    bottom: 177px;
+    position: absolute;
+    background-color: white;
+    visibility: hidden;
+}

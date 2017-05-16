@@ -176,3 +176,24 @@ figcaption {
     font-weight: bold;
     color: #bb3333;
 }
+
+#vol-control{
+    height: 27px;
+    width: 127px;
+    left: 785px;
+    top: 140px;
+    right: 979px;
+    bottom: 177px;
+    position: absolute;
+    visibility: hidden;
+}
+
+#def{
+    height: 120px;
+    width: 273px;
+    left: 765px;
+    top: 160px;
+    right: 1002px;
+    bottom: 280px;
+    position: absolute;
+}

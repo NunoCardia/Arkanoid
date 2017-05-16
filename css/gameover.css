@@ -109,3 +109,15 @@ button
 button:hover{
 	opacity: 0.6;
 }
+
+
+
+#vol-control{
+    height: 27px;
+    width: 127px;
+    left: 785px;
+    top: 140px;
+    right: 979px;
+    bottom: 177px;
+    position: absolute;
+}

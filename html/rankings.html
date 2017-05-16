@@ -6,8 +6,10 @@
 		<meta charset = "utf-8">
 		<link rel="stylesheet" type="text/css" href="../css/rankings.css">
         <script type="text/javascript" src="../js/rankings.js"></script>
+        <script type="text/javascript" src="../js/sound.js"></script>
 	</head>
 	<body>
+        <audio id="song" src="../aux_files/Sounds/song18.mp3" autoplay loop></audio>
 		<div id="upper">
             <img id="logo" src="../aux_files/Pictures/logo_copy.png">
             <div id="options">
@@ -16,6 +18,7 @@
                 <button title="Exit game"><img id="exit" src="../aux_files/Pictures/EXIT_B.png"></button>
             </div>
         </div>
+        <input id="vol-control" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)">
 		<select id="mode" name="Mode">
 			<option value="Classic Mode">Classic Mode</option>
 			<option value="Survival Mode">Survival Mode</option>

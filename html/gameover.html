@@ -5,13 +5,17 @@
 		<title>Arkanoid</title>
 		<meta charset = "utf-8">
         <link rel="stylesheet" type="text/css" href="../css/gameover.css">
+        <script type="text/javascript" src="../js/gameover.js"></script>
+        <script type="text/javascript" src="../js/sound.js"></script>
 	</head>
     <body>
+        <audio id="song" src="../aux_files/Sounds/song18.mp3" autoplay loop></audio>
         <div id="options">
             <button><img id="soundLogo" src="../aux_files/Pictures/Som_B.png"></button>
             <button><img id="definition" src="../aux_files/Pictures/definition_B.png"></button>
             <button><img id="exit" src="../aux_files/Pictures/EXIT_B.png"></button>
         </div>
+        <input id="vol-control" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)">
         <h1 id="gameover">GAME OVER</h1>
         <p id="point">Total Points: </p>
         <button><img id="retry" src="../aux_files/Pictures/Play_Again.png"></button>

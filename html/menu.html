@@ -5,9 +5,11 @@
 		<title>Arkanoid</title>
 		<meta charset = "utf-8">
 		<script type="text/javascript" src="../js/menu.js"></script>
+        <script type="text/javascript" src="../js/sound.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/menu.css">
 	</head>
     <body>
+        <audio id="song" src="../aux_files/Sounds/song18.mp3" autoplay loop></audio>
         <div id="upper">
             <img id="logo" src="../aux_files/Pictures/logo_copy.png">
             <div id="options">
@@ -16,6 +18,7 @@
                 <button title="Exit game"><img id="exit" src="../aux_files/Pictures/EXIT_B.png"></button>
             </div>
         </div>
+        <input id="vol-control" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)">
         <nav id="menu">
             <button title="Play game"><img id="play" src="../aux_files/Pictures/Play_B.png"></button>
             <button title="Rankings"><img id="scores" src="../aux_files/Pictures/Trofeu_B.png"></button>

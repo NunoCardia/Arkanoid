@@ -100,3 +100,13 @@ div #options
     font-family: AmpleSoft;
     text-align-last: center;
 }
+
+#vol-control{
+    height: 27px;
+    width: 127px;
+    left: 845px;
+    top: 140px;
+    right: 979px;
+    bottom: 177px;
+    position: absolute;
+}

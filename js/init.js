@@ -77,5 +77,8 @@ function optionHandler(evt){
             hidePage("html/gameover.html");
             showPage("html/multiplayer.html");
             break;
+        case "Leave":
+            window.open("about:blank", "_self").close();
+			break;
     }
 }
