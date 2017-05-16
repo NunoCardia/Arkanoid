@@ -5,16 +5,15 @@
 	window.addEventListener("load", main);
 }());
 
-var modoEscolhido;
-var nome;
+var gameMode;
+var namePlayer;
 
 function main()
 {
 	var btn = document.getElementById("back");
 	btn.addEventListener("click", btnHandler);
-
-	var modo = document.getElementById("mode");
-	modo.addEventListener("change",funcBlur);
+    var btn1 = document.getElementById("play1");
+    btn1.addEventListener("click",btnHandler);
 }
 
 function btnHandler(ev)
@@ -29,37 +28,22 @@ function btnHandler(ev)
 		case "back":
 			mainWindow.postMessage("From play to main", '*');
 			break;
-		case "jogar":
-			mainWindow.postMessage("Play to game", '*');
-			break;
-	}
-}	
-
-function funcBlur(el) {
-	modoEscolhido = document.getElementById("mode").value;
-	nome = document.getElementById("user").value;
-	if(nome != "USERNAME" && modoEscolhido != ''){
-		var jogar = document.getElementById("jogar");
-		jogar.disabled = false;
-		jogar.style.cursor = "pointer";
-		
-		document.styleSheets[0].addRule('button:hover', 'opacity: 0.6', 0);
-
-		var btn = document.getElementsByTagName("nav")[0];
-		btn.addEventListener("click", btnHandler);
+        case "play":
+            gameMode();
+            if(gameMode == "Survival Mode"){
+                mainWindow.postMessage("Play to survival", '*');
+            }
+            else if(gameMode == "Multiplayer Mode"){
+                mainWindow.postMessage("Play to multiplayer", '*');    
+            }
+            break;
 	}
 }
 
-function voltou () {
-	document.getElementById("user").style.color = "black";
-	var jogar = document.getElementById("bt1");
-	jogar.disabled = false;
-	jogar.style.cursor = "pointer";
-	
-	document.styleSheets[0].addRule('button:hover', 'opacity: 0.6', 0);
-
-	var btn = document.getElementsByTagName("back");
-	btn.addEventListener("click", btnHandler);
+function gameMode(){
+    gameMode = document.getElementById("mode").value;
+    namePlayer = document.getElementById("user").value;
+    
+    
 }
-
 //TODO: ADD PLAYERS TO FILE

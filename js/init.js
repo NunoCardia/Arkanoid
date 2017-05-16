@@ -53,13 +53,29 @@ function optionHandler(evt){
             hidePage("html/about.html");
             showPage("html/menu.html");
             break;
-        case "Play to game":
+        case "Play to survival":
             hidePage("html/play.html");
-            showPage("html/game.html");
+            showPage("html/survival.html");
             break;
-        case "Game to menu":
-            hidePage("html/game.html");
+        case "Play to multiplayer":
+            hidePage("html/play.html");
+            showPage("html/multiplayer.html");
+            break;
+        case "Survival to gameover":
+            hidePage("html/survival.html");
+            showPage("html/gameover.html");
+            break;
+        case "Gameover to main menu":
+            hidePage("html/gameover.html");
             showPage("html/menu.html");
+            break;
+        case "Gameover to survival":
+            hidePage("html/gameover.html");
+            showPage("html/survival.html");
+            break;
+        case "Gameover to multiplayer":
+            hidePage("html/gameover.html");
+            showPage("html/multiplayer.html");
             break;
     }
 }
