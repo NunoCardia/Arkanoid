@@ -120,4 +120,5 @@ button:hover{
     right: 979px;
     bottom: 177px;
     position: absolute;
+    visibility: hidden;
 }
