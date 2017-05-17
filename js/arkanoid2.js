@@ -48,7 +48,7 @@ var buffsImage = new Array();
 var ballImage = new Image();
 var extraBallImagem = new Image();
 
-var maxRewards = 10;
+var maxRewards = 50;
 
 
 var mainSound = new Audio("../aux_files/Sounds/wind.mp3");
@@ -330,14 +330,8 @@ function Ball(constructor_pelota) {
 		}
 
 		if (lifes == 0 || blocks.length == 28){
-			otherSounds[9].play();
-			mainSound.pause();
-			gameover = true;
-			clear();
-			canvas.drawImage(gameoverImage, (gameWidth/2)-(gameoverWidth/2)+80, (gameHeight/2)-(gameoverHeight/2)*5, gameoverWidth-200, gameoverHeight);
-			canvas.font = "bold 30px sans-serif";
-			canvas.fillStyle = 'rgb(54, 168, 225)';
-			canvas.fillText ("Total points: " +points, (gameWidth/2)-(gameoverWidth/5), (gameHeight/2)-(gameoverHeight/2));
+			var mainWindow = window.parent;
+	        mainWindow.postMessage("Multiplayer to gameover",'*');
 		}
 	}
 }

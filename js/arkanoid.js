@@ -46,7 +46,7 @@ var buffsImage = new Array();
 var ballImage = new Image();
 var extraBallImagem = new Image();
 
-var maxRewards = 10;
+var maxRewards = 50;
 
 
 var otherSounds = [new Audio("../aux_files/Sounds/lose.wav"), new Audio("../aux_files/Sounds/choque.wav"), new Audio("../aux_files/Sounds/rompe1.wav"), new Audio("../aux_files/Sounds/rompe2.wav"), new Audio("../aux_files/Sounds/rompe3.wav"),
@@ -90,7 +90,7 @@ function init() {
 	canvas = document.getElementById("lienzo").getContext("2d");
 	document.getElementById("lienzo").width = gameWidth;
 	document.getElementById("lienzo").height = gameHeight;
-
+    localStorage.setItem("gamemode","survival");
 	minX = $("#lienzo").offset().left;
 	maxX = minX + gameWidth;
 

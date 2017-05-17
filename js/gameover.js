@@ -13,6 +13,8 @@ function main()
     btn2.addEventListener("click",handleSound);
     var btn3 = document.getElementById("exit");
     btn3.addEventListener("click",handleExit);
+    var btn4 = document.getElementById("retry");
+    btn4.addEventListener("click",handleRetry);
 }
 
 function btnHandler(ev)
@@ -47,5 +49,20 @@ function handleExit(ev){
     if(btnClicado == "exit"){
         console.log("..:"+btnClicado);
         mainWindow.postMessage("Leave",'*');
+    }
+}
+
+function handleRetry(ev){
+    var btnClicado = ev.target.id;
+    ev.target.removeEventListener("click", handleRetry);
+	var mainWindow = window.parent;
+    if(btnClicado == "retry"){
+        if(localStorage.getItem("gamemode") == "survival"){
+            console.log("on retry button: "+localStorage.getItem("gamemode"));
+            mainWindow.postMessage("Gameover to survival",'*');   
+        }
+        else if(localStorage.getItem("gamemode") == "multiplayer"){
+            mainWindow.postMessage("Gameover to multiplayer",'*');
+        }
     }
 }
