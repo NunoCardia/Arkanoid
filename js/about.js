@@ -30,7 +30,6 @@ function handleSound(ev){
     
     var btnClicado = ev.target.id;
     var sound = document.getElementById("vol-control");
-    console.log("IN IF: "+sound.style.visibility);
     if(sound.style.visibility == "hidden" || sound.style.visibility == ''){
         sound.style.visibility = "visible";   
     }
@@ -45,7 +44,6 @@ function handleExit(ev){
 	var mainWindow = window.parent;
     
     if(btnClicado == "exit"){
-        console.log("..:"+btnClicado);
         mainWindow.postMessage("Leave",'*');
     }
 }

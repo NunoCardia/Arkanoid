@@ -64,18 +64,12 @@ div #options
 	left: 18%;
 }
 
-#definition
-{
-	width: 30%;
-	height: 50%;
-	left: 55%;
-}
 
 #exit
 {
 	width: 30%;
 	height: 50%;
-	left: 90%;
+	left: 55%;
 }
 
 #back{
@@ -109,4 +103,16 @@ div #options
     right: 979px;
     bottom: 177px;
     position: absolute;
+}
+
+#survivalList,#multiplayerList
+{
+	position: absolute;
+	top: 44%;
+	left: 31%;
+	font-family: AmpleSoft;
+	text-transform: uppercase;
+	font-size: 150%;
+	display: none;
+    color: black;
 }

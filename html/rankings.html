@@ -14,20 +14,14 @@
             <img id="logo" src="../aux_files/Pictures/logo_copy.png">
             <div id="options">
                 <button title="Sound volume"><img id="soundLogo" src="../aux_files/Pictures/Som_B.png"></button>
-                <button title="Key settings"><img id="definition" src="../aux_files/Pictures/definition_B.png"></button>
                 <button title="Exit game"><img id="exit" src="../aux_files/Pictures/EXIT_B.png"></button>
             </div>
         </div>
         <input id="vol-control" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)">
 		<select id="mode" name="Mode">
-			<option value="Classic Mode">Classic Mode</option>
-			<option value="Survival Mode">Survival Mode</option>
-            <option value="Multiplayer Mode">Multiplayer Mode</option>
+			<option value="Survival_Mode">Survival Mode</option>
+            <option value="Multiplayer_Mode">Multiplayer Mode</option>
 		</select>
-		<table id="classicList">
-			<col width="75%">
-			<col width="11%">
-		</table>
 		<table id="survivalList">
 			<col width="75%">
 			<col width="11%">

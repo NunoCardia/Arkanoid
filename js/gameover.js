@@ -15,12 +15,14 @@ function main()
     btn3.addEventListener("click",handleExit);
     var btn4 = document.getElementById("retry");
     btn4.addEventListener("click",handleRetry);
+    var theDiv = document.getElementById("point");
+    var temp = localStorage.getItem("currentPlayer").split(" ");
+    theDiv.innerHTML += temp[5]; 
 }
 
 function btnHandler(ev)
 {
 	var btnClicado = ev.target.id;
-	console.log("ON BUTTON HANDLER");
 	ev.target.removeEventListener("click", btnHandler);
 
 	var mainWindow = window.parent;
@@ -32,7 +34,6 @@ function handleSound(ev){
     
     var btnClicado = ev.target.id;
     var sound = document.getElementById("vol-control");
-    console.log("IN IF: "+sound.style.visibility);
     if(sound.style.visibility == "hidden" || sound.style.visibility == ''){
         sound.style.visibility = "visible";   
     }
@@ -47,7 +48,6 @@ function handleExit(ev){
 	var mainWindow = window.parent;
     
     if(btnClicado == "exit"){
-        console.log("..:"+btnClicado);
         mainWindow.postMessage("Leave",'*');
     }
 }
@@ -57,7 +57,6 @@ function handleRetry(ev){
     ev.target.removeEventListener("click", handleRetry);
 	var mainWindow = window.parent;
     if(btnClicado == "retry"){
-        console.log("on retry button: "+localStorage.getItem("gamemode"));
         if(localStorage.getItem("gamemode") == "survival"){
             mainWindow.postMessage("Gameover to survival",'*');   
         }

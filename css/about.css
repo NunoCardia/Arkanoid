@@ -54,20 +54,10 @@ p{
     position: absolute;
 }
 
-#definition{
-    width: 38px;
-    height: 34px;
-    left: 866px;
-    top: 93px;
-    right: 904px;
-    bottom: 128px;
-    position: absolute;
-}
-
 #exit{
     width: 39px;
     height: 34px;
-    left: 911px;
+    left: 866px;
     top: 93px;
     right: 950px;
     bottom: 127px;

@@ -45,8 +45,10 @@ var blocksImage = new Array();
 var buffsImage = new Array();
 var ballImage = new Image();
 var extraBallImagem = new Image();
-
+var currentPlayer1;
 var maxRewards = 50;
+var arraysPlayer = new Array();
+
 
 
 var otherSounds = [new Audio("../aux_files/Sounds/lose.wav"), new Audio("../aux_files/Sounds/choque.wav"), new Audio("../aux_files/Sounds/rompe1.wav"), new Audio("../aux_files/Sounds/rompe2.wav"), new Audio("../aux_files/Sounds/rompe3.wav"),
@@ -87,18 +89,17 @@ function init() {
     extraBallImagem.src = "./../aux_files/Pictures/Bola_Extra_Clara.png";
     loadBlocks();
     loadRewards();
-	canvas = document.getElementById("lienzo").getContext("2d");
-	document.getElementById("lienzo").width = gameWidth;
-	document.getElementById("lienzo").height = gameHeight;
+	canvas = document.getElementById("game").getContext("2d");
+	document.getElementById("game").width = gameWidth;
+	document.getElementById("game").height = gameHeight;
     localStorage.setItem("gamemode","survival");
-	minX = $("#lienzo").offset().left;
+	minX = $("#game").offset().left;
 	maxX = minX + gameWidth;
-
 	createBlocks();
 	bar = new Bar();
 	newBall();
-
-
+    var playersArray = new Array();
+    localStorage.setItem("playersArray", JSON.stringify(arraysPlayer));
 	window.requestAnimationFrame(drawCanvas);
 
 
@@ -316,6 +317,10 @@ function Ball(constructor_pelota) {
 
 		if (lifes == 0 || blocks.length == 28){
 			var mainWindow = window.parent;
+            var name = localStorage.getItem("currentPlayer").split(" ");
+            currentPlayer1 = new Player(name[1],name[3],points);
+            localStorage.setItem("currentPlayer",currentPlayer1.toString());
+            addPlayer();
 	        mainWindow.postMessage("Survival to gameover",'*');
 		}
 	}
@@ -336,6 +341,30 @@ function spliceBall(){
 			balls.splice(p,1);
 		}
 	}
+}
+
+function addPlayer(){
+	arraysPlayer = JSON.parse(localStorage.getItem("playersArray"));
+	var found = 0;
+
+	if(arraysPlayer == null){
+		arraysPlayer = new Array();
+	}
+	else{
+		for (var i = 0; i < arraysPlayer.length; i++) {
+			if(arraysPlayer[i].name == currentPlayer1.name){
+				found = 1;
+				if(arraysPlayer[i].score < currentPlayer1.score){
+					arraysPlayer[i] = currentPlayer1;
+				}
+			}
+		}
+        if(found == 0){
+        arraysPlayer.push(currentPlayer1);
+        }
+	}
+    localStorage.setItem("currentPlayer", currentPlayer1.toString());
+	localStorage.setItem("playersArray", JSON.stringify(arraysPlayer));
 }
 
 function rewardMovementBarra(evt){
@@ -545,7 +574,7 @@ function resetCanvas(){
 	balls[0].posY = gameHeight-(bar.barHeight*1.8);
 	balls[0].dx = 0;
 	balls[0].dy = 0;
-    document.getElementById("lienzo").onclick = function(){
+    document.getElementById("game").onclick = function(){
     balls[0].dx = ballSpeed;
     balls[0].dy = -ballSpeed;
     }   

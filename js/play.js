@@ -33,7 +33,6 @@ function handleExit(ev){
 	var mainWindow = window.parent;
     
     if(btnClicado == "exit"){
-        console.log("..:"+btnClicado);
         mainWindow.postMessage("Leave",'*');
     }
 }
@@ -51,6 +50,7 @@ function btnHandler(ev)
 			mainWindow.postMessage("From play to main", '*');
 			break;
         case "play":
+            newPlayer();
             gameMode1();
             if(gameMode == "Survival Mode"){
                 mainWindow.postMessage("Play to survival", '*');
@@ -66,7 +66,6 @@ function handleSound(ev){
     
     var btnClicado = ev.target.id;
     var sound = document.getElementById("vol-control");
-    console.log("IN IF: "+sound.style.visibility);
     if(sound.style.visibility == "hidden" || sound.style.visibility == ''){
         sound.style.visibility = "visible";   
     }
@@ -74,4 +73,11 @@ function handleSound(ev){
         sound.style.visibility = "hidden";
     }
 }
-//TODO: ADD PLAYERS TO FILE
+
+function newPlayer(){
+	gameMode = document.getElementById("mode").value;
+	namePlayer = document.getElementById("user").value;
+
+	var player = new Player(namePlayer,gameMode,0);
+	localStorage.setItem("currentPlayer",player.toString());
+}
