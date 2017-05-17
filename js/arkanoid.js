@@ -207,10 +207,10 @@ function createBlocks(){
 	}
 }
 
-function Ball(constructor_pelota) {
+function Ball(construtor) {
 	this.ballWidth = gameWidth/100*2;
-	this.posX = constructor_pelota.posX;
-	this.posY = constructor_pelota.posY;
+	this.posX = construtor.posX;
+	this.posY = construtor.posY;
 	this.color ='rgb(54, 168, 225)';
 	this.dx = ballSpeed;
 	this.dy = -ballSpeed;
@@ -586,26 +586,26 @@ function resetCanvas(){
 
 function newLineBlocks(){
     initialRows ++;
-    var blocksProvisional = new Array(initialRows);
+    var tempBlocks = new Array(initialRows);
 
     for(i=0;i<initialRows;i++){
-        blocksProvisional[i]=new Array(nBlocks);
+        tempBlocks[i]=new Array(nBlocks);
     }
     for(e=1; e<blocks.length+1;e++){
         for(j=0;j<blocks[e-1].length;j++){
-            blocksProvisional[e][j] = blocks[e-1][j];
+            tempBlocks[e][j] = blocks[e-1][j];
         }
     }
 
-    for(e=1; e<blocksProvisional.length;e++){
-        for(j=0;j<blocksProvisional[e].length;j++){
-            blocksProvisional[e][j].posY = blocksProvisional[e][j].posY + blockHeight;
+    for(e=1; e<tempBlocks.length;e++){
+        for(j=0;j<tempBlocks[e].length;j++){
+            tempBlocks[e][j].posY = tempBlocks[e][j].posY + blockHeight;
 
         }
     }
 
     for (i=0;i<nBlocks;i++){
-        blocksProvisional[0][i] =  new Block({
+        tempBlocks[0][i] =  new Block({
         posX : i*blockWidth,
         posY : scoreSize,
         life : Math.floor((Math.random() * 4) + 1),
@@ -624,7 +624,7 @@ function newLineBlocks(){
     }
     for (j=0;j<initialRows;j++){
         for (i=0;i<blocks[j].length;i++){
-            blocks[j][i]= blocksProvisional[j][i];
+            blocks[j][i]= tempBlocks[j][i];
         }
     }
 }
