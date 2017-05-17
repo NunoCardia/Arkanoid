@@ -93,7 +93,7 @@ function init() {
 	canvas = document.getElementById("lienzo").getContext("2d");
 	document.getElementById("lienzo").width = gameWidth;
 	document.getElementById("lienzo").height = gameHeight;
-
+    localStorage.setItem("gamemode","multiplayer");
 	minX = $("#lienzo").offset().left;
 	maxX = minX + gameWidth;
     bar=new Bar();
@@ -331,7 +331,6 @@ function Ball(constructor_pelota) {
 		}
 
 		if (lifes == 0){
-            console.log("IN LIFES EQUAL 0");
 			var mainWindow = window.parent;
 	        mainWindow.postMessage("Multiplayer to gameover",'*');
 		}

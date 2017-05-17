@@ -57,8 +57,8 @@ function handleRetry(ev){
     ev.target.removeEventListener("click", handleRetry);
 	var mainWindow = window.parent;
     if(btnClicado == "retry"){
+        console.log("on retry button: "+localStorage.getItem("gamemode"));
         if(localStorage.getItem("gamemode") == "survival"){
-            console.log("on retry button: "+localStorage.getItem("gamemode"));
             mainWindow.postMessage("Gameover to survival",'*');   
         }
         else if(localStorage.getItem("gamemode") == "multiplayer"){
