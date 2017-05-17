@@ -136,6 +136,7 @@ function init() {
 }
 
 function drawCanvas() {
+    console.log("LIFES: "+lifes);
 		if (gameover == false){
 			clear();
 
@@ -329,7 +330,8 @@ function Ball(constructor_pelota) {
 			resetCanvas();
 		}
 
-		if (lifes == 0 || blocks.length == 28){
+		if (lifes == 0){
+            console.log("IN LIFES EQUAL 0");
 			var mainWindow = window.parent;
 	        mainWindow.postMessage("Multiplayer to gameover",'*');
 		}

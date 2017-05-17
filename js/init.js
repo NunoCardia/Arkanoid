@@ -65,6 +65,10 @@ function optionHandler(evt){
             hidePage("html/survival.html");
             showPage("html/gameover.html");
             break;
+        case "Multiplayer to gameover":
+            hidePage("html/survival.html");
+            showPage("html/gameover.html");
+            break;
         case "Gameover to main menu":
             hidePage("html/gameover.html");
             showPage("html/menu.html");
