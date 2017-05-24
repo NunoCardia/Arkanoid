@@ -168,11 +168,11 @@ function drawCanvas() {
 		window.requestAnimationFrame(drawCanvas);
 }
 
-function Block(constructor_bloque) {
-	this.posX = constructor_bloque.posX;
-	this.posY = constructor_bloque.posY;
-	this.life = constructor_bloque.life;
-	this.prize = constructor_bloque.prize;
+function Block(constructor) {
+	this.posX = constructor.posX;
+	this.posY = constructor.posY;
+	this.life = constructor.life;
+	this.prize = constructor.prize;
 	this.blockWidth = blockWidth;
 	this.blockHeight = blockHeight;
 
